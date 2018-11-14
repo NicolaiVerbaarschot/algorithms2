@@ -23,12 +23,14 @@ public class DynamicTable {
 	}
 		
 	private void printTable() {
-		System.out.println();
+        for (int i = 0 ; i < numberOfElements; i++)
+            System.out.print(table[i] + " ");
+        System.out.println();
 	}
 	
 	private void reportSize() {
-        System.out.println("table length: " + table.length);
-        System.out.println("number of elements: " + numberOfElements);
+        System.out.print(numberOfElements + " " + table.length);
+        System.out.println();
 
     }
 
