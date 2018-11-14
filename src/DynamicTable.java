@@ -4,23 +4,49 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 public class DynamicTable {
-	// Add necessary fields
 
-	public void insert(int number) {
-		// Implement this
+    private int numberOfElements = 0;
+	private int[] table = new int[1];
+
+    private void insert(int number) {
+	    if (numberOfElements == table.length)
+	        doubleArraySize(table);
+	    table[numberOfElements] = number;
+		numberOfElements++;
 	}
 	
-	public void delete() {
-		// Implement this
+	private void delete() {
+		numberOfElements--;
+		if (table.length != 1)
+		    if (numberOfElements <= 0.25 * table.length)
+            halfArraySize(table);
 	}
 		
-	public void printTable() {
-		// Implement this
+	private void printTable() {
+		System.out.println();
 	}
 	
-	public void reportSize() {
-		// Implement this
-	}
+	private void reportSize() {
+        System.out.println("table length: " + table.length);
+        System.out.println("number of elements: " + numberOfElements);
+
+    }
+
+	private void doubleArraySize(int[] tableOriginal) {
+        int[] tableCopy = new int[table.length * 2];
+        for (int i = 0; i < numberOfElements; i++) { // TODO: update to built-in after testing
+            tableCopy[i] = table[i];
+        }
+        table = tableCopy;
+    }
+
+    private void halfArraySize(int[] tableOriginal) {
+        int[] tableCopy = new int[table.length/2];
+        for (int i = 0; i < numberOfElements; i++) { // TODO: update to built-in after testing
+            tableCopy[i] = table[i];
+        }
+        table = tableCopy;
+    }
 	
 	public static void main(String[] args) throws IOException {
 		BufferedReader input = new BufferedReader(new InputStreamReader(System.in));

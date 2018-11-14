@@ -18,7 +18,7 @@ public class QuickSort {
 	private int partition(int[] A, int lo, int hi) {
 
 		int pivot, i, j;
-		pivot = A[hi];
+		pivot = A[hi/2];
 		i = lo - 1;
 
 		for (j = lo; j < hi; j++){
@@ -29,7 +29,7 @@ public class QuickSort {
 			}
 		}
 
-		this.swap(A,i+1, A[hi]);
+		this.swap(A,i+1, A[hi/2]);
 
 		return i+1;
 
