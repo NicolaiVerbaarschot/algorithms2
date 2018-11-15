@@ -36,17 +36,13 @@ public class DynamicTable {
 
 	private void doubleArraySize(int[] tableOriginal) {
         int[] tableCopy = new int[table.length * 2];
-        for (int i = 0; i < numberOfElements; i++) { // TODO: update to built-in after testing
-            tableCopy[i] = table[i];
-        }
+        if (numberOfElements >= 0) System.arraycopy(table, 0, tableCopy, 0, numberOfElements);
         table = tableCopy;
     }
 
     private void halfArraySize(int[] tableOriginal) {
         int[] tableCopy = new int[table.length/2];
-        for (int i = 0; i < numberOfElements; i++) { // TODO: update to built-in after testing
-            tableCopy[i] = table[i];
-        }
+        if (numberOfElements >= 0) System.arraycopy(table, 0, tableCopy, 0, numberOfElements);
         table = tableCopy;
     }
 	
